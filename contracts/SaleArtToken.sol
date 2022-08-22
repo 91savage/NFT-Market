@@ -2,55 +2,53 @@
 
 pragma solidity ^0.8.0;
 
-import "MintArtToken.sol";
+import "./MintNFT.sol";
 
-contract SaleArtToken {
-    MintArtToken public mintArtTokenAddress;
+contract SaleArtToken{
+    MintNFT public mintArtTokenAddress;
 
-    constructor (address _mintArtTokenAddress) {
-        mintArtTokenAddress = MintArtToken(_mintArtTokenAddress);
+    constructor(address _mintArtTokenAddress){
+        mintArtTokenAddress = MintNFT(_mintArtTokenAddress);
     }
 
-    mapping(uint256 => uint256) public artTokenPrices; // tokenId => price
+    mapping (uint256 => uint256) public artTokenPrices;
+    uint256[] public onSaleArtTokenArray;
 
-    uint256[] public onSaleArtTokenArray; // 프론트앤드에서 판매중인 token 확인 
-
-    function setForSaleArtToken(uint256 _artTokenId, uint256 _price) public {
+    function setForSaleArtToken(uint256 _artTokenId, uint256 _price) public{
         address artTokenOwner = mintArtTokenAddress.ownerOf(_artTokenId);
 
-        require(artTokenOwner == msg.sender, "Caller is not Art token owner."); // 소유자가 맞는지 확인
-        require(_price > 0, "Price is zero or lower."); // 0원 이상
-        require(artTokenPrices[_artTokenId] == 0, "this art token is already on sale"); //판매 등록 체크
-        require(mintArtTokenAddress.isApprovedForAll(artTokenOwner, address(this)), "Art token owner did not approve token."); 
-        //  artTokenOwner가 address(this)에게 판매 권한을 넘겼는지 확인 (true or false)
+        require(artTokenOwner == msg.sender, "not owner");
+        require(_price > 0 , "lower price");
+        require(artTokenPrices[_artTokenId]==0, "already on sale");
+        require(mintArtTokenAddress.isApprovedForAll(artTokenOwner,address(this)),"Art token owner did not approve token");
 
-        artTokenPrices[_artTokenId] == _price;
+        artTokenPrices[_artTokenId] = _price;
 
         onSaleArtTokenArray.push(_artTokenId);
     }
 
-    function purchaseArtToken(uint256 _artTokenId) public payable {
+    function purchaseArtToken (uint256 _artTokenId) public payable {
         uint256 price = artTokenPrices[_artTokenId];
         address artTokenOwner = mintArtTokenAddress.ownerOf(_artTokenId);
 
-        require(price > 0, "Art token not sale");
-        require(price <= msg.value, "Caller sent lower than price."); // msg.value(eth) 가 price보다 같거나 커야 구매 가능
-        require(artTokenOwner != msg.sender, " Caller is art token owner");
+        require(price > 0, "ArtToken not sale");
+        require(price <= msg.value , "not money");
+        require(artTokenOwner != msg.sender , "not owner");
 
-        payable(artTokenOwner).transfer(msg.value); // eth를 주인에게 전송
-        mintArtTokenAddress.safeTransferFrom(artTokenOwner, msg.sender, _artTokenId);
+        payable(artTokenOwner).transfer(msg.value);
+        mintArtTokenAddress.safeTransferFrom(artTokenOwner,msg.sender, _artTokenId);
 
-        artTokenPrices[_artTokenId] == 0; // 가격초기화
+        artTokenPrices[_artTokenId] = 0;
 
         for(uint256 i=0; i<onSaleArtTokenArray.length; i++){
-            if(artTokenPrices[onSaleArtTokenArray[i]] == 0) {
-                onSaleArtTokenArray[i] = onSaleArtTokenArray[onSaleArtTokenArray.length -1];
+            if(artTokenPrices[onSaleArtTokenArray[i]] == 0){
+                onSaleArtTokenArray[i] = onSaleArtTokenArray[onSaleArtTokenArray.length-1];
                 onSaleArtTokenArray.pop();
             }
         }
     }
 
-    function getOnSaleArtTokenArrayLength() view public returns (uint256){ //판매중인 토큰의 배열의 길이 출력
-    return onSaleArtTokenArray.length;
-    } 
+    function getonSaleArtTokenArrayLength() view public returns (uint256){
+        return onSaleArtTokenArray.length;
+    }
 }

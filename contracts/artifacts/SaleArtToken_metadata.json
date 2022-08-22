@@ -37,7 +37,7 @@
 			},
 			{
 				"inputs": [],
-				"name": "getOnSaleArtTokenArrayLength",
+				"name": "getonSaleArtTokenArrayLength",
 				"outputs": [
 					{
 						"internalType": "uint256",
@@ -53,7 +53,7 @@
 				"name": "mintArtTokenAddress",
 				"outputs": [
 					{
-						"internalType": "contract MintArtToken",
+						"internalType": "contract MintNFT",
 						"name": "",
 						"type": "address"
 					}
@@ -125,7 +125,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"SaleArtToken.sol": "SaleArtToken"
+			"contracts/SaleArtToken.sol": "SaleArtToken"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -139,6 +139,14 @@
 		"remappings": []
 	},
 	"sources": {
+		"@openzeppelin/contracts/access/Ownable.sol": {
+			"keccak256": "0xa94b34880e3c1b0b931662cb1c09e5dfa6662f31cba80e07c5ee71cd135c9673",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://40fb1b5102468f783961d0af743f91b9980cf66b50d1d12009f6bb1869cea4d2",
+				"dweb:/ipfs/QmYqEbJML4jB1GHbzD4cUZDtJg5wVwNm3vDJq1GbyDus8y"
+			]
+		},
 		"@openzeppelin/contracts/token/ERC721/ERC721.sol": {
 			"keccak256": "0x0b606994df12f0ce35f6d2f6dcdde7e55e6899cdef7e00f180980caa81e3844e",
 			"license": "MIT",
@@ -163,20 +171,12 @@
 				"dweb:/ipfs/QmYvPafLfoquiDMEj7CKHtvbgHu7TJNPSVPSCjrtjV8HjV"
 			]
 		},
-		"@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol": {
-			"keccak256": "0x0a79511df8151b10b0a0004d6a76ad956582d32824af4c0f4886bdbdfe5746e5",
+		"@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol": {
+			"keccak256": "0x5c3501c1b70fcfc64417e9da5cc6a3597191baa354781e508e1e14cc0e50a038",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://afbedcf17f31db719e6fdc56caa8f458799c5fa2eb94cb1e94ef18f89af85768",
-				"dweb:/ipfs/QmVmqRdBfbgYThpZSoAJ5o9mnAMjx8mCHHjv3Rh8cQAAg3"
-			]
-		},
-		"@openzeppelin/contracts/token/ERC721/extensions/IERC721Enumerable.sol": {
-			"keccak256": "0xd1556954440b31c97a142c6ba07d5cade45f96fafd52091d33a14ebe365aecbf",
-			"license": "MIT",
-			"urls": [
-				"bzz-raw://26fef835622b46a5ba08b3ef6b46a22e94b5f285d0f0fb66b703bd30217d2c34",
-				"dweb:/ipfs/QmZ548qdwfL1qF7aXz3xh1GCdTiST81kGGuKRqVUfYmPZR"
+				"bzz-raw://899c87a849a94c848818d0afede6961d2c87665af1dd23a5c983e78981a65691",
+				"dweb:/ipfs/QmUeFDffQRDmX87FX3MRxN3bmpUxDTWpWLwPJzeAJ3yF6H"
 			]
 		},
 		"@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
@@ -203,6 +203,14 @@
 				"dweb:/ipfs/QmRK2Y5Yc6BK7tGKkgsgn3aJEQGi5aakeSPZvS65PV8Xp3"
 			]
 		},
+		"@openzeppelin/contracts/utils/Counters.sol": {
+			"keccak256": "0xf0018c2440fbe238dd3a8732fa8e17a0f9dce84d31451dc8a32f6d62b349c9f1",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://59e1c62884d55b70f3ae5432b44bb3166ad71ae3acd19c57ab6ddc3c87c325ee",
+				"dweb:/ipfs/QmezuXg5GK5oeA4F91EZhozBFekhq5TD966bHPH18cCqhu"
+			]
+		},
 		"@openzeppelin/contracts/utils/Strings.sol": {
 			"keccak256": "0xaf159a8b1923ad2a26d516089bceca9bdeaeacd04be50983ea00ba63070f08a3",
 			"license": "MIT",
@@ -227,20 +235,20 @@
 				"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy"
 			]
 		},
-		"MintArtToken.sol": {
-			"keccak256": "0x5265b0e6bb555cde5ce5a2657b89007d9032594fe739346875a31ecb3747b249",
+		"contracts/MintNFT.sol": {
+			"keccak256": "0x6b5faf72c0f5ea21f1a7b17a4002e5328e4b15e6ed6c3d7a4f1f311490afa26b",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://76e08d413ce5a5f829b028e152ba8aa44e0453386a147159ab41bd8c3b2d6acc",
-				"dweb:/ipfs/QmWzvW818CoYAzNb4tdAWUtBBFFm6JsHFcUmTp7YZKLD4c"
+				"bzz-raw://bc62445356cce998d9175adceaba1ee55ae78c6be1ca7d049517cac411434e07",
+				"dweb:/ipfs/QmYymS9KiAkogJ7Qx7KwpgRqzqQmFeupaFXG3cDBHJLdhW"
 			]
 		},
-		"SaleArtToken.sol": {
-			"keccak256": "0x43696cf7c757629f341d6e25363194b0dd8f547715d697c20445c39f79cb5137",
+		"contracts/SaleArtToken.sol": {
+			"keccak256": "0xdae7ab78b9dee08f636805a670d1e31cfa51ee014284ad76789d7987f5a66861",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://85e226c365d5a31cb542721bac853fe85ec6bee0f4ddde7e6f496973b0645416",
-				"dweb:/ipfs/QmRR3zNtbyByhq8ptZFDn2VhN1fKFjvaMZapSpcmXZyEgJ"
+				"bzz-raw://dafc42995ca6ca75911c05002528237e5eeb1ff78993eb00eebdc530fb9122de",
+				"dweb:/ipfs/QmWchkLA4eA9CA7MqyCC7asdGwm6SbHLHdWFfsxP2jvpY7"
 			]
 		}
 	},

@@ -485,7 +485,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"MintArtToken.sol": "MintArtToken"
+			"contracts/MintArtToken.sol": "MintArtToken"
 		},
 		"evmVersion": "london",
 		"libraries": {},
@@ -587,7 +587,7 @@
 				"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy"
 			]
 		},
-		"MintArtToken.sol": {
+		"contracts/MintArtToken.sol": {
 			"keccak256": "0x5265b0e6bb555cde5ce5a2657b89007d9032594fe739346875a31ecb3747b249",
 			"license": "MIT",
 			"urls": [
