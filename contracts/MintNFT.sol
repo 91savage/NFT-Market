@@ -20,7 +20,7 @@ contract MintNFT is ERC721URIStorage, Ownable {
     // 생성자로 ERC721을 그대로 호출함, 첫번쨰 인자는 토큰이름, 두번째 인자는 심볼
     constructor() public ERC721("ArtNFT", "ART"){}
 
-    // NFT 발행 함수, NFT json(이름, 설명, 이미지URI, 속성 등등) 을 담고 있는 tokenURI를 파라미터로 전달.
+    // NFT 발행 함수, NFT json(이름, 설명, 이미지URI, 속성 등등) 을 담고 있는 tokenURI를 파라미터로 전달. , onlyOwner 소유자(컨트랙트배포자)만 민팅 가능
     function mintNFT(string memory toeknURI) public onlyOwner returns(uint256){
         // NFT를 발행하면 발행된 토큰의 개수를 추적하는 tokenIds값을 1 즐가시킴,
         _tokenIds.increment();
