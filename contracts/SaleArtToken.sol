@@ -17,7 +17,7 @@ contract SaleArtToken{
     uint256[] public onSaleArtTokenArray;
 
     function setForSaleArtToken(uint256 _artTokenId, uint256 _price) public{
-        // 토큰아이디에 대한 소유자 확인
+        // 토큰아이디에 대한 소유자 확인.
         address artTokenOwner = mintArtTokenAddress.ownerOf(_artTokenId);
 
         require(artTokenOwner == msg.sender, "not owner"); // 요청자가 token 소유자인지 확인 
