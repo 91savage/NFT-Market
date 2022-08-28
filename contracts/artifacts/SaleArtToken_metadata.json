@@ -244,11 +244,11 @@
 			]
 		},
 		"contracts/SaleArtToken.sol": {
-			"keccak256": "0xd373582d6aaa95f43e6b34995e672cdb1ed3832bec9cde77093812206ddf008d",
+			"keccak256": "0x48577d0eabd88dc4ae0830445aa712d91f936a4aa2d2ae6c1132d7ca7b228280",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://494aca3d825722f4cb8cad537697531705ace6ce5acd91047d905cf0a20bf2a7",
-				"dweb:/ipfs/QmeujDxedjWLNvJ6MmehLchkSpu9U7CPNHHxsmM9W8Mei1"
+				"bzz-raw://da9850419deebff3bea500a66461fac3f587ea3342241eb45353678a9b534d14",
+				"dweb:/ipfs/QmcADEJeDKJv5V1w2LZMDqrQTAvfEgbqXD6fYF2GseHmPA"
 			]
 		}
 	},

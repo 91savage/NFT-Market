@@ -21,7 +21,7 @@ contract SaleArtToken{
         address artTokenOwner = mintArtTokenAddress.ownerOf(_artTokenId);
 
         require(artTokenOwner == msg.sender, "not owner"); // 요청자가 token 소유자인지 확인 
-        require(_price > 0 , "lower price"); // price 값을 0보다 큰 값을 넣어야 함
+        require(_price > 0 , "lower price"); // price 값을 0보다 큰 값을 넣어야 함.
         require(artTokenPrices[_artTokenId]==0, "already on sale"); // token ID에 해당하는 가격이 0일 경우, 이미 판매 된 토큰으로 간주
         require(mintArtTokenAddress.isApprovedForAll(artTokenOwner,address(this)),"Art token owner did not approve token"); // 토큰 소유주 확인
 
