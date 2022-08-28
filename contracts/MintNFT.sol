@@ -13,7 +13,7 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 //  소유주만 접근하도록 하기위해 onlyOwner Modifier를 함수에 사용
 contract MintNFT is ERC721URIStorage, Ownable {
     using Counters for Counters.Counter;
-    // Counters.Counter를 사용해서 _tokenIds값을 추적한다. NFT가 발행되면 _tokenIds를 1증가시키면서 발행된 NFT에 id를 부여함.
+    // Counters.Counter를 사용해서 _tokenIds값을 추적한다.. NFT가 발행되면 _tokenIds를 1증가시키면서 발행된 NFT에 id를 부여함.
     // Counter는 uint256 값을 갖고, current(), increment(), decrement(), reset() 함수를 이용해서 값을 다룸.
     Counters.Counter private _tokenIds;
 
